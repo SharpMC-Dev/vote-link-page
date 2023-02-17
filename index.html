@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./assets/styles/index.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="shortcut icon" href="./assets/images/logos/logo.png" type="image/x-icon" />
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <title>SharpMC | Redeem a Voucher</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logout">Log Out</div>
+      <div class="mid">
+        <div class="hero">
+          <div class="title">Redeem a Voucher</div>
+          <div class="subtitle">First log in, then enter your voucher code to redeem it and get your rewards.</div>
+          <div class="form">
+            <div class="loginButton">Log In</div>
+            <div class="usernameForm">
+              <div class="textInput">
+                <input type="text" name="username" id="usernameInput" placeholder="Enter your Username" />
+                <label for="username">Invalid Username</label>
+              </div>
+              <button id="usernameSubmit">Log In</button>
+              <!-- <img src="https://minotar.net/helm/mfh_steve/600.png" id="usernameImage" /> -->
+            </div>
+            <div class="voucherForm">
+              <div class="textInput">
+                <input type="text" name="voucher" id="voucherInput" placeholder="Enter your Voucher Code" />
+                <label for="voucher">Invalid Voucher Code</label>
+              </div>
+              <button id="voucherSubmit"><span class="material-icons submitIcon">arrow_back</span></button>
+            </div>
+            <div class="voucherDetails"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JQUERY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="./scripts/login.js"></script>
+    <script src="./scripts/vouchers.js"></script>
+  </body>
+</html>
