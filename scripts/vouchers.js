@@ -17,7 +17,7 @@ voucherInput.on('input', async e => {
   try {
     let mojangUsername = await (await fetch(`https://api.ashcon.app/mojang/v2/user/${window.localStorage.getItem('username')}`, { redirect: 'follow', method: 'GET' })).json();
 
-    apiVoucher = await (await fetch(`https://vouchers.sharpmc.org/api/${voucher}`)).json();
+    apiVoucher = await (await fetch(`https://voucherpanel.sharpmc.org/api/${voucher}`)).json();
     if (apiVoucher.voucher.playerSpecific && apiVoucher.voucher.playerUUID !== mojangUsername.uuid) return voucherInputError.show();
     if (!apiVoucher.successful) return voucherInputError.show();
     if (!apiVoucher.voucher.active) {
@@ -61,7 +61,7 @@ voucherButton.on('click', async e => {
     try {
       let mojangUsername = await (await fetch(`https://api.ashcon.app/mojang/v2/user/${window.localStorage.getItem('username')}`, { redirect: 'follow', method: 'GET' })).json();
 
-      apiVoucher = await (await fetch(`https://vouchers.sharpmc.org/api/${voucher.val()}`)).json();
+      apiVoucher = await (await fetch(`https://voucherpanel.sharpmc.org/api/${voucher.val()}`)).json();
       if (apiVoucher.voucher.playerSpecific && apiVoucher.voucher.playerUUID !== mojangUsername.uuid) return voucherInputError.show();
       if (!apiVoucher.successful) return voucherInputError.show();
 
@@ -77,7 +77,7 @@ voucherButton.on('click', async e => {
       return voucherInputError.show();
     }
 
-    fetch(`https://vouchers.sharpmc.org/api/redeem/${voucher.val()}?player=${window.localStorage.getItem('username')}`, {
+    fetch(`https://voucherpanel.sharpmc.org/api/redeem/${voucher.val()}?player=${window.localStorage.getItem('username')}`, {
       method: 'PUT',
       redirect: 'follow',
     })
