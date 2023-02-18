@@ -4,25 +4,40 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .hidden {
-  display: none !important;
+  display: none;
+}
+
+::-webkit-scrollbar {
+  max-width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1d2129;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border-radius: var(--border-radius);
 }
 
 /* CONTAINER */
 .container {
   /* background-color: var(--background-main); */
-  background-image: url('../images/etc/bg.png') !important;
+  background-image: url('../images/etc/bg.png');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   background-origin: 0 0;
-  background-repeat: space;
+  background-repeat: repeat-y;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   padding: 20px;
   display: flex;
   flex-direction: row;
@@ -31,17 +46,19 @@ body {
 }
 
 .mid {
-  width: 40%;
-  height: 100%;
+  max-width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: left;
 }
+.mid img {
+  max-width: 150px;
+}
 
 .hero {
-  width: 80%;
+  max-width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,230 +74,72 @@ body {
 }
 
 .subtitle {
-  width: 70%;
+  max-width: 80%;
   font-size: 16pt;
   font-weight: 100;
   text-transform: none;
   opacity: var(--text-fade-opacity);
 }
 
-.form {
-  margin-top: 30px;
-}
-
-.loginButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--brand-color);
-  width: 100%;
-  padding: 15px 120px;
-  font-size: 14pt;
-  border-radius: var(--border-radius);
-}
-
-.loginButton:hover {
-  transition: all 0.5s;
-  background-color: var(--brand-color-dark);
-  cursor: pointer;
-}
-
-.loginButton:not(:hover) {
-  transition: all 0.5s;
-  background-color: var(--brand-color);
-  cursor: pointer;
-}
-
-/* FORM */
-.usernameForm {
-  /* position: relative;
-  top: 33%; */
+.links {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  /* align-items: center; */
-  gap: 15px;
-  width: 100%;
-}
-
-.textInput {
-  display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: flex-start;
-}
-
-.textInput label {
-  font-size: 10pt;
-  font-weight: 100;
-  text-transform: none;
-  color: var(--red);
-  opacity: var(--text-fade-opacity);
-  margin-top: 5px;
-}
-
-#usernameImage {
-  width: 30px;
-  height: 30px;
-  border-radius: var(--border-radius);
-}
-
-#usernameInput {
-  outline: none;
-  border: none;
-  border-radius: var(--border-radius);
-  width: 300px;
-  height: 60px;
-  background-color: var(--background-lighter);
-  color: white;
-  padding-left: 15px;
-  opacity: 1;
-}
-
-#usernameInput::placeholder {
-  color: white;
-  opacity: var(--text-fade-opacity);
-}
-
-#usernameSubmit {
-  padding: 10px;
-  outline: none;
-  border: none;
-  border-radius: var(--border-radius);
-  width: 100px;
-  height: 60px;
-  background-color: var(--brand-color);
-  cursor: pointer;
-  font-size: 11pt;
-}
-
-#usernameSubmit:hover {
-  transition: all 0.5s;
-  background-color: var(--brand-color-dark);
-  cursor: pointer;
-}
-
-#usernameSubmit:not(:hover) {
-  transition: all 0.5s;
-  background-color: var(--brand-color);
-  cursor: pointer;
-}
-/* FORM */
-
-/* FORM */
-.voucherForm {
-  /* position: relative;
-  top: 33%; */
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  /* align-items: center; */
-  gap: 15px;
-  width: 100%;
-}
-
-.textInput {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.textInput label {
-  font-size: 10pt;
-  font-weight: 100;
-  text-transform: none;
-  color: var(--red);
-  opacity: var(--text-fade-opacity);
-  margin-top: 5px;
-}
-
-#voucherImage {
-  width: 30px;
-  height: 30px;
-  border-radius: var(--border-radius);
-}
-
-#voucherInput {
-  outline: none;
-  border: none;
-  border-radius: var(--border-radius);
-  width: 300px;
-  height: 60px;
-  background-color: var(--background-lighter);
-  color: white;
-  padding-left: 15px;
-  opacity: 1;
-}
-
-#voucherInput::placeholder {
-  color: white;
-  opacity: var(--text-fade-opacity);
-}
-
-#voucherSubmit {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 10px;
-  outline: none;
-  border: none;
-  border-radius: var(--border-radius);
-  width: 60px;
-  height: 60px;
-  background-color: var(--brand-color);
-  cursor: pointer;
-  font-size: 11pt;
-}
-
-#voucherSubmit:hover {
-  transition: all 0.5s;
-  background-color: var(--brand-color-dark);
-  cursor: pointer;
-}
-
-#voucherSubmit:not(:hover) {
-  transition: all 0.5s;
-  background-color: var(--brand-color);
-  cursor: pointer;
-}
-/* FORM */
-
-.voucherDetails {
-  width: 100%;
-  /* height: 100px; */
-  padding: 20px 30px;
-  border-radius: var(--border-radius);
-  background-color: var(--background-main);
   margin-top: 50px;
+  gap: 10px;
+}
+
+.link {
+  background-color: var(--background-main);
+  border-radius: var(--border-radius);
+  min-width: 350px;
+  width: 40%;
+  height: 80px;
+  padding: 30px 50px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 30px;
-}
-
-.voucherDetailsTitle {
-  font-weight: 200;
-  font-size: 15pt;
-}
-
-.voucherDetailsSubtitle span {
-  font-weight: 100;
-  font-size: 16pt;
-}
-
-#pathBack {
-  opacity: var(--text-fade-opacity);
-}
-
-#pathCurrent {
-  text-transform: none;
-}
-
-.logout {
-  position: absolute;
-  color: var(--red);
-  top: 10px;
-  left: 10px;
-  opacity: var(--text-fade-opacity);
+  filter: var(--base-drop-shadow);
   cursor: pointer;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.link .linkName {
+  font-weight: 200;
+  font-size: 14pt;
+}
+
+.link .linkURL a {
+  text-transform: none;
+  font-weight: 100;
+  font-size: 10pt;
+  opacity: var(--text-fade-opacity);
+}
+
+.link:hover {
+  transition: all 0.5s;
+  background-color: var(--brand-color-dark);
+}
+
+.link:hover .linkURL a {
+  transition: all 0.5s;
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.link:not(:hover) {
+  transition: all 0.5s;
+  background-color: var(--background-main);
+}
+
+.link:not(:hover) .linkURL a {
+  transition: all 0.5s;
+  opacity: var(--text-fade-opacity);
+}
+
+.frame {
+  margin-top: 50px;
 }
