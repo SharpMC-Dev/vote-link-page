@@ -94,8 +94,8 @@ body {
 .link {
   background-color: var(--background-main);
   border-radius: var(--border-radius);
-  min-width: 350px;
-  width: 40%;
+  min-width: 400px;
+  max-width: 60%;
   height: 80px;
   padding: 30px 50px;
   display: flex;
@@ -104,7 +104,7 @@ body {
   cursor: pointer;
   justify-content: space-evenly;
   align-items: flex-start;
-  gap: 15px;
+  gap: 20%;
 }
 
 .link .linkName {
@@ -142,4 +142,22 @@ body {
 
 .frame {
   margin-top: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+  .linkURL {
+    display: none;
+  }
+
+  .link {
+    align-items: center;
+    justify-content: center;
+    min-width: 250px !important;
+    padding: 0 !important;
+  }
+
+  .linkName {
+    font-size: 10pt !important;
+    font-weight: 100 !important;
+  }
 }
